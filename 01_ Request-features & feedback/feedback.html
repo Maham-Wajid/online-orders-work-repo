@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- for icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="asset/fontawesome-free-6.1.1-web/js/fontawesome.min.js"></script>
+
+    <link rel="stylesheet" href="asset/bubbler-master/src/bubbler.min.css">
+    <link rel="stylesheet" href="asset/fontawesome-free-6.1.1-web/css/fontawesome.min.css">
+
+    <title>Feedback</title>
+    <link rel="stylesheet" href="style/feedback_style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!-- Navbar -->
+        <div class="row">
+            <nav class="navbar navbar-light bg-light navbar-expand-sm">
+                <ul class="navbar-nav me-auto mb-2 mt-3 ">
+                    <li class="nav-item ms-5">
+                        <span class="FR-icon"><img src="asset/icon/feature_request_icon1.png"
+                                alt="feature-requests-icon" srcset="" style="height: 20px; width: 20px;"
+                                class="img-fluid"></span>
+                        <a href="index.html" class="nav-link"><span class="FR-text fw-bold">Feature
+                                Request</span></a>
+                    </li>
+                    <li class="nav-item ms-5">
+                        <span class="FB-icon"><img src="asset/icon/feedback_icon.png" alt="feature-requests-icon"
+                                srcset="" style="height: 20px; width: 20px;" class="img-fluid"></span>
+                        <a href="feedback.html" class="nav-link active"><span
+                                class="FB-text fw-bold">Feedback</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Left Side -> Create Post Box -->
+        <div class="row">
+            <div class="col-md-4 col-12 mt-4" id="post-form">
+                <div class="card bg-light shadow-sm border border-light ms-5" style="width: 83%;">
+                    <h5 class="card-title mt-3 text-center">Create Feedback</h5>
+                    <form>
+                        <div class="card-body" style="padding: 10px;">
+                            <div class="mb-3">
+                                <label for="post-title" class="form-label">Title</label>
+                                <input type="text" class="form-control shadow-sm" id="post-title"
+                                    aria-describedby="PostTitle" placeholder="Short, Descriptive title">
+                            </div>
+                            <div>
+                                <label for="post-details" class="form-label">Details</label>
+                                <textarea class="form-control shadow-sm" id="post-details"
+                                    aria-describedby="PostDetails" placeholder="Any Details here!" id="" cols="20"
+                                    rows="5"></textarea>
+                            </div>
+                        </div>
+                        <div class="footer my-1 px-2">
+                            <div class="user-img mb-1">
+                                <label for="file-input">
+                                    <img src="asset/icon/img-icon.png" style="height: 25px; width: 25px;"
+                                        class="img-fluid" />
+                                </label>
+                                <input id="file-input" type="file" />
+                            </div>
+                            <div class="save-comment mb-1">
+                                <button type="submit">Create Feedback</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Side -> Show Posts -->
+            <div class="col-md-8 col-12 mt-4">
+
+                <!-- Selecting post type -->
+                <div class="row">
+                    <div class="col-6">
+                        <span>
+                            <p class="d-inline" style="font-size: 17px;">Showing&nbsp; </p>
+                        </span>
+                        <span class="post-menues">
+                            <select name="" id="list" onchange="select_filter();">
+                                <optgroup label="Sort">
+                                    <option value="trending">Trending</option>
+                                    <option value="top">Top</option>
+                                    <option value="new">New</option>
+                                </optgroup>
+                                    
+                            </select>
+                        </span>
+                        <span class="d-inline" style="font-size: 17px;">
+                            <select name="" id="list1">
+                                <optgroup label="Filter"><option value="review">Under Review</option>
+                                    <option value="planned">Planned</option>
+                                    <option value="progress">Progress</option>
+                                    <option value="complete">Complete</option>
+                                    <option value="myOwn">My Own</option>
+                                </optgroup>
+                                    
+                            </select>
+                        </span>
+                        
+                    </div>
+
+                    <!-- Searching -->
+                    <div class="col-6">
+                        <div class="search">
+                            <form class="d-flex flex-row align-items-center srchbar">
+                                <i class="fa fa-search me-2"></i><input class="w-100" type="search" placeholder="Search"
+                                    aria-label="Search" id="post-search" onkeyup="search_posts();">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Section -->
+                <div class="row mt-5">
+
+                    <!-- POSTS -->
+                    <div class="posts">
+
+
+                        <div class="row single-post trending">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">First Trending
+                                            Post.</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1st post ends -->
+
+                        <!-- 2nd post start -->
+                        <div class="row single-post trending">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">Second Trending Post</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 2nd post ends -->
+
+                        <!-- 3rd post start -->
+                        <div class="row single-post top">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">First Top Post
+                                            sit.</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 3rd post ends -->
+
+                        <!-- 4th post start -->
+                        <div class="row single-post top">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">Second Top Post sit
+                                            amet.</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 4th post ends -->
+
+                        <!-- 5th post start -->
+                        <div class="row single-post new">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">First New Post
+                                            sit.</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 5th post ends -->
+
+                        <!-- 6th post start -->
+                        <div class="row single-post new">
+                            <div class="col-2 me-3 post-vote h-50">
+                                <div class="upvote"></div>
+                                <span>
+                                    <h6>40</h6>
+                                </span>
+                            </div>
+                            <div class="col-8 post-link ">
+                                <a href="feedback_details.html">
+                                    <div class="postTitle">
+                                        <span class="fw-bold post-title-text">Second New Post sit
+                                            amet.</span>
+                                    </div>
+                                    <div class="postDetails my-2">
+                                        <div class="truncate" style="-webkit-line-clamp: 2;">Lorem ipsum dolor sit
+                                            amet consectetur adipisicing elit. Laudantium rerum natus alias amet
+                                            omnis odio, distinctio modi recusandae veniam totam. Lorem ipsum dolor
+                                            sit amet consectetur adipisicing elit. Recusandae porro quasi alias
+                                            reprehenderit voluptatum voluptatem fuga impedit nulla. Nihil, mollitia.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-1 px-0">
+                                <div class="postCommentCount">
+                                    <img src="asset/icon/comment_icon.png" alt="comment-icon" srcset=""
+                                        style="height: 20px; width: 20px;" class="img-fluid">
+                                    <span class="ms-2">2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 6th post ends -->
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="action" onclick="actionToggle();">
+            <span>?</span>
+            <ul>
+                <li>
+                    <img src="asset/icon/feature_request_thunder_icon.png" alt="feature-requests-icon" srcset=""
+                        style="height: 28px; width: 25px;" class="me-2"><a href="index.html">Feature Requests</a>
+
+                </li>
+                <li>
+                    <img src="asset/icon/feedback_icon.png" alt="feature-requests-icon" srcset=""
+                        style="height: 28px; width: 25px;" class="me-2"><a href="feedback.html">Feedback</a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="asset/bubbler-master/src/bubbler.min.js"></script>
+    <script src="https://use.fontawesome.com/bd48d6d264.js"></script>
+    <script src="js/feedback_script.js"></script>
+
+</body>
+
+</html>

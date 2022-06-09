@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navbar settings */
+
+.navbar {
+    background-color: #f8f9fa !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar .navbar-collapse .navbar-nav li {
+    font-size: 1.2rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-weight: 500;
+    text-shadow: none;
+}
+
+.navbar .navbar-collapse .navbar-nav li:hover {
+    background-color: rgb(95, 236, 210);
+    box-shadow: #999;
+}
+
+.navbar .navbar-collapse .navbar-nav li a:hover {
+    color: white;
+    text-shadow: none;
+}
+
+.navbar .navbar-collapse .navbar-nav .activeHome a {
+    color: black;
+}
+
+.nav-item .btn {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: none;
+    border: none;
+    padding: 0 !important;
+    margin-top: 8px;
+}
+
+.nav-item .btn:hover {
+    /* font-weight: 700; */
+    text-shadow: none;
+    color: white;
+}
+
+.nav-item .btn:focus {
+    outline: none;
+    border: none;
+}
+
+/* ===========================Body Settings ========================= */
+.news {
+    height: 115px !important;
+}
+
+.news a {
+    text-decoration: none;
+    list-style: none;
+}
+
+.news .newsTitle a{
+    color: black;
+    font-size: 18px;
+}
+
+.news .newsTitle a:hover{
+    text-decoration: underline;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.news .newsDetails a .truncate {
+    color: black;
+}
+
+.news .authName {
+    display: flex;
+    flex-direction: row;
+}
+
+/* .news .reaction .btn{
+    display: inline-block;
+    padding: 0 !important;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    box-shadow: none;
+    border: none;
+} */
+/* 
+.news .reaction .reply a {
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+} */
+
+.news .authName .auth-name{
+    color: #888;
+    font-weight: 500;
+    transition: all .1s ease-in-out;
+    font-size: 15px;
+}
+
+.news .authName .time-stamp {
+    color: #888;
+    font-weight: 500;
+    transition: all .1s ease-in-out;
+    font-size: 15px;
+}

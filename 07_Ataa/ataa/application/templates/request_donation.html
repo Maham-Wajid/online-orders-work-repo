@@ -1,0 +1,63 @@
+{% include 'header.html' %}
+<script>
+    $(document).ready(function () {
+        $('#donation-navbar').addClass('activeHome');
+    });
+</script>
+
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="box1">
+        <div class="row justify-content-center align-items-center p-0 m-0">
+            <div class="col-8 align-self-center">
+                <div class="card mx-auto justify-content-center border-0 mt-3" style="width: 50%; height: auto;">
+                    <div class="card-header py-2 text-center">
+                        <img src="../static/asset/img/donation-logo.png" class="img-fluid mx-auto my-1"
+                            style="height: 50px; width: 50px;" alt="" srcset="">
+                        <h5 class="card-title fw-bold mt-2 mb-1">Donation Request</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/request_donation" method="post" enctype="multipart/form-data">
+                            <div class="mb-2">
+                                <label for="inputTitle" class="form-label fw-bold">Title of project</label>
+                                <input type="text" class="form-control" id="inputTitle" aria-describedby="title"
+                                    name="title" placeholder="i.e; hospital donation" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="option" class="form-label fw-bold">Category</label>
+                                <select class="form-select" aria-label="Default select example" id="option"
+                                    name="category">
+                                    <optgroup>
+                                        <option value="1" selected>Projects</option>
+                                        <option value="2">Individual</option>
+                                        <option value="3">Organizational</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="amount" class="form-label fw-bold">Required Amount</label>
+                                <input type="text" class="form-control" id="amount" aria-describedby="number"
+                                    name="requested_amount" placeholder="" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="imgFile" class="form-label fw-bold">Upload related Image</label>
+                                <input type="file" class="form-control" id="imgFile" name="donation_image" required>
+                            </div>
+                            <div class="mb-2">
+                                <label for="inputDescription" class="form-label fw-bold">Description of project</label>
+                                <textarea name="description" class="form-control" id="inputDescription" cols="30"
+                                    rows="3" style="resize: none;" required></textarea>
+                            </div>
+                            <div class="text-center mt-3">
+                                <button type="submit" class="btn SignUp-button w-100 ">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}

@@ -1,0 +1,72 @@
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="../static/asset/img/logo.jpeg" class="img-fluid" alt="" style="width: 60px; height: 60px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if current_user.is_authenticated %}
+            <h5 class="ms-3 my-0"><span style="color: #FD9346;">Available Balance:</span> SAR {{current_user.balance|float(1)}}</h5>
+            {% endif %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item" id="home-navbar">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item ms-1" id="donation-navbar">
+                    <a class="nav-link" href="/request_donation">Donation Request</a>
+                </li>
+                <li class="nav-item ms-1">
+                    <button type="button" class="btn modal-btn mx-0 " data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Add Balance
+                    </button>
+                </li>
+                <li class="nav-item ms-1">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item ms-1" id="signup-navbar">
+                    <a class="nav-link" href="/signup">Signup</a>
+                </li>
+                <li class="nav-item ms-1" id="login-navbar">
+                    <a class="nav-link" aria-current="page" href="/login">Login</a>
+                </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header" style="background: linear-gradient(120deg, #FDB777, #FD9346);">
+                <h5 class="modal-title" id="exampleModalLabel">Add Balance</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="">
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label for="InputName" class="form-label fw-bold" style="font-size: 17px;">Amount</label>
+                        <input type="text" class="form-control" id="amount" aria-describedby="number"
+                                    name="requested_amount" placeholder="SAR" required>
+                    </div>
+                    <div class="mt-3">
+                        <p class="fw-bold" style="color: #FD9346; font-size: 18px;">Note: <span style="color: black !important; font-size: 16px;">maximum limit for transaction is 10,000</span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn addblnc-btn">Add balance</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

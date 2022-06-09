@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* navbar settings */
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar .navbar-collapse .navbar-nav li {
+    font-size: 1.2rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-weight: bold;
+    text-shadow: none;
+    font-family: 'Noto Serif', serif;
+}
+
+.navbar .navbar-collapse .navbar-nav li:hover {
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    font-weight: 600 !important;
+}
+
+.navbar .navbar-collapse .navbar-nav li a:hover {
+    color: white !important;
+}
+
+.navbar .navbar-collapse .navbar-nav .active {
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    font-weight: 600 !important;
+}
+
+.navbar .navbar-collapse .navbar-nav .active:hover {
+    background: linear-gradient(120deg, #FD9346, #FDB777);
+}
+
+.navbar .navbar-collapse .navbar-nav .active a {
+    color: white;
+}
+
+/* SignUp/LogIn */
+.box1 .card {
+    box-shadow: 3px 3px 10px #e6e4e4, -3px -3px 10px #e6e4e4;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #FD9346;
+}
+
+.box1 .card .card-body form input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #FD9346;
+}
+
+.box1 .card .card-body form textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #FD9346;
+}
+
+.box1 .card .card-body form select:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #FD9346;
+}
+
+.SignUp-button {
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    border: none;
+    /* border-radius: 45px !important;
+    padding: 5px 10px 5px 10px !important; */
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.LogIn-button:hover {
+    background: linear-gradient(120deg, #FD9346, #FDB777);
+}
+
+.LogIn-button {
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    border: none;
+    /* border-radius: 45px !important;
+    padding: 5px 10px 5px 10px !important; */
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.SignUp-button:hover {
+    background: linear-gradient(120deg, #FD9346, #FDB777);
+}
+
+.box1 .card .card-footer p {
+    font-size: 17px;
+    font-family: 'Noto Serif', serif;
+    color: #FD9346;
+}
+
+.box1 .card .card-footer p a {
+    color: black;
+    font-weight: 500 !important;
+}
+
+.box2 .card .card-body .buy-btn{
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    border: none;
+    color: white !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+}
+
+.box2 .card .card-body .buy-btn:hover{
+    background: linear-gradient(120deg, #FD9346, #FDB777);
+}
+
+.Shop-button {
+    background: linear-gradient(120deg, #FDB777, #FD9346);
+    border: none;
+    /* border-radius: 45px !important;
+    padding: 5px 10px 5px 10px !important; */
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+
+.Shop-button:hover {
+    background: linear-gradient(120deg, #FD9346, #FDB777);
+}

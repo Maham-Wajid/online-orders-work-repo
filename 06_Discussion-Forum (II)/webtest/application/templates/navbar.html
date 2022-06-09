@@ -1,0 +1,110 @@
+<div class="">
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+        <a class="navbar-brand fw-bold display-3 px-2 gradient-text" href="/" style="font-size: 1.75rem !important;">Forum Website</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item activeHome me-1">
+                        <a class="nav-link active fw-bold" aria-current="page" href="/" style="color: #29C1A3;">Home</a>
+                    </li>
+                    {% if session['user'] %}
+                    <li class="nav-item">
+                        <a href="/logout" style="text-decoration: none; color: #29C1A3;">
+                            <button type="button" class="btn fw-bold" >
+                                Logout
+                            </button>    
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <button type="button" class="btn fw-bold" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border: 0; outline: 0; color: #29C1A3;">
+                            Signup/Signin
+                        </button>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+    </nav>
+</div>
+
+    <!-- Button trigger modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="static"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 1rem;">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto gradient-text fw-bold" style="font-size: 1.75rem;" id="exampleModalLabel">Welcome to our Website!</h5>
+                    <button type="button" class="btn-close m-0 p-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item w-50 text-center" role="presentation">
+                            <button class="nav-link fw-bold w-100" id="home-tab" data-bs-toggle="tab" data-bs-target="#signIn"
+                                type="button" role="tab" aria-controls="home" >SignIn</button>
+                        </li>
+                        <li class="nav-item w-50 text-center" role="presentation">
+                            <button class="nav-link fw-bold w-100" id="profile-tab" data-bs-toggle="tab" data-bs-target="#signUp"
+                                type="button" role="tab" aria-controls="profile" >SignUp</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content signin_tab" id="myTabContent">
+
+                        <!-- Signup Form -->
+                        <div class="tab-pane fade" id="signUp" role="tabpanel" aria-labelledby="contact-tab">
+                            <form action="/signup" method="post">
+                                <div class="form-group my-4">
+                                    <input type="text" class="form-control shadow-sm" id="username" name="username"
+                                        aria-describedby="usernameHelp" placeholder="Username" style="border: none; outline: none; border-radius: 10px;" required>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input type="password" class="form-control shadow-sm" id="password" name="password"
+                                        placeholder="Password" style="border: none; outline: none; border-radius: 10px;" required>
+                                </div>
+                                <div class="form-group my-4">
+                                    <input type="password" class="form-control shadow-sm" id="confirm-password" name="confirm-password"
+                                        placeholder="Confirm Password" style="border: none; outline: none; border-radius: 10px;" required>
+                                </div>
+                                <button type="submit" class="btn w-100 submit_btn1 fw-bold">Create Account</button>
+
+                            </form>
+                        </div>
+
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="signIn" role="tabpanel" aria-labelledby="home-tab">
+                            <form action="/signin" method="post">
+                                <div class="form-group my-4">
+                                    <input type="text" class="form-control shadow-sm" id="username" name="username"
+                                        aria-describedby="usernameHelp" placeholder="Username" required style="border: none; outline: none; border-radius: 10px;">
+                                </div>
+                                <div class="form-group my-4">
+                                    <input type="password" class="form-control shadow-sm" id="password" name="password"
+                                        placeholder="Password" required style="border: none; outline: none; border-radius: 10px;">
+                                </div>
+                                <button type="submit" class="btn w-100 submit_btn1 fw-bold">Log In</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+    <script>
+        alert("{{message}}")
+    </script>
+      <!-- <li>{{ message }}</li> -->
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}

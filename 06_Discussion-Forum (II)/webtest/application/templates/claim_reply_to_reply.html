@@ -1,0 +1,94 @@
+{% include 'header.html' %}
+<title>Reply to Reply</title>
+<body>
+    {% include 'navbar.html' %}
+    <div class="row me-0">
+        <div class="col-12 text-center p-2 mt-3">
+            <span class="fw-bold p-2 shadow-sm gradient-text" style="font-size: 2rem; border-radius: 10px; border-right: 1px inset #29C1A3; border-top: 2px outset #3AAB9F; border-left: 2px outset #3EC7AF; border-bottom: 1px inset #3DB5A8;">Claim Reply to Reply</span>
+        </div>
+    </div>
+
+    <!-- Left Side -> Create Post Box -->
+    <div class="row">
+        <div class="col-md-4 col-12 mt-4" id="post-form">
+            <div class="card bg-light shadow ms-5" style="width: 83%;">
+                <h5 class="card-title mt-3 text-center fw-bold">Create New Reply</h5>
+                <hr class="w-75 mx-auto">
+                <form action="/create_reply_to_reply/{{reply_to_claim[0][0]}}" method="post">
+                    <div class="card-body" style="padding: 10px;">
+                        <div>
+                            <label for="post-details" class="form-label fw-bold">Details</label>
+                            <textarea style="border: none; outline: none;" class="form-control shadow-sm" id="post-details" aria-describedby="PostDetails" name="reply_text"
+                                placeholder="Any Details here!" id="" cols="20" rows="5"  {% if session['user'] %} onkeyup="unlock_btn(this.id);" {% endif %}></textarea>
+                        </div>
+                        <div class="mt-3">
+                            <label for="post-select" class="form-label fw-bold">Type</label>
+                            <select style="border: none; outline: none;" class="form-select shadow-sm" aria-label="Default select example" name="reply_relation">
+                                <option value="1" selected>Evidence</option>
+                                <option value="2">Support</option>
+                                <option value="3">Rebuttal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="footer mt-2 mb-1 px-2">
+                        <div class="save-comment mb-1">
+                            <button type="submit" id="submit_btn">Create Reply</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side -> Show Posts -->
+        <div class="col-md-8 col-12 mt-5 pe-5 post-col">
+            <div class="row pe-5 post-row">
+                <div class="reply pe-5">
+
+                    <!-- POSTS -->
+                    <div class="posts">
+                        {% if replies %}
+                        {% for reply in replies %}
+                        <!-- 1st post start -->
+                        <div class="row single-post trending mb-3 me-0">
+                            <div class="col-8 post-link shadow-sm py-2"
+                                style="height: auto !important; border-radius: 10px;">
+                                <div class="postTitle">
+                                    <span class="fw-bold post-title-text">{{reply[13]}}</span>
+                                </div>
+                                <div class="postDetails my-2">
+                                    <div class="truncate" style="-webkit-line-clamp: 2;">{{reply[11]}}</div>
+                                </div>
+                                <div class="claim_type my-2">
+                                    {% if reply[7] == 1 %}
+                                    <button type="button" class="btn btn-info">Evidence</button>
+                                    {% elif reply[7] == 2 %}
+                                    <button type="button" class="btn btn-success">Support</button>
+                                    {% else %}
+                                    <button type="button" class="btn btn-danger">Rebuttal</button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 1st post ends -->
+                        {% endfor %}
+                        {% else %}
+                        <h2>No Replies on this claim reply!</h2>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+                integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+                integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+                crossorigin="anonymous"></script>
+
+            <script src="../static/assets/bubbler-master/src/bubbler.min.js"></script>
+            <script src="https://use.fontawesome.com/bd48d6d264.js"></script>
+            <script src="../static/js/script.js"></script>
+</body>
+
+</html>

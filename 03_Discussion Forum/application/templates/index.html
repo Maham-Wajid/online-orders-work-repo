@@ -1,0 +1,98 @@
+{% include 'header.html' %}
+<title>Topics</title>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="container">
+        <p class="display-6 text-center fw-bold my-2">Posts</p>
+    </div>
+    <div class="row">
+
+        <!-- Left Side -> Create Post Box -->
+        <div class="col-md-4 col-12 mt-4" id="post-form">
+            <div class="card bg-light shadow border border-light ms-5" style="width: 83%;">
+                <h5 class="card-title mt-3 text-center">Create a New Post</h5>
+                <form method="post" action="/create_topic">
+                    <div class="card-body" style="padding: 10px;">
+                        <div class="mb-3">
+                            <label for="post-title" class="form-label">Title</label>
+                            <input type="text" class="form-control shadow-sm" id="post-title" name="topicName"
+                                aria-describedby="PostTitle" placeholder="Short, Descriptive title" {% if
+                                session['user'] %} onkeyup="unlock_btn(this.id);" {% endif %}>
+                        </div>
+                        <div>
+                            <label for="post-details" class="form-label">Details</label>
+                            <textarea class="form-control shadow-sm" id="post-details" aria-describedby="PostDetails"
+                                placeholder="Any Details here!" id="" cols="20" rows="5"></textarea>
+                        </div>
+
+                    </div>
+                    <div class="footer my-1 px-2">
+                        <div class="save-comment mb-1">
+                            <button type="submit" disabled id="submit_btn"
+                                style="background-color: rgb(95, 236, 210); color: black; font-weight: 400;"
+                                class="shadow-sm">Create Post</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side -> Show Posts -->
+        <div class="col-md-8 col-12">
+            <!-- Posts Section -->
+            <div class="row mt-4">
+
+                <!-- POSTS -->
+                <div class="posts">
+                    {% for topic in topic_data %}
+                    <!-- topic start -->
+                    <div class="row single-post trending mb-3">
+                        <div class="col-8 post-link shadow-sm border border-1 py-2">
+                            <a href="/claims/{{topic[0]}}">
+
+                                <div class="postTitle">
+                                    <span class="fw-bold post-title-text">{{topic[1]}}</span>
+                                </div>
+
+                                <div class="postDetails my-2">
+                                    <div class="truncate" style="-webkit-line-clamp: 2;">{{topic[2]}}</div>
+                                </div>
+
+                            </a>
+                            <div class="reaction mt-3">
+                                <div class="d-flex justify-content-row">
+                                    <button class="btn mx-2 like_btn">
+                                        <span id="icon"><i class="far fa-thumbs-up"></i></span>
+                                    </button>
+                                    <div class="reaction_comnt">
+                                        <a href="/claims/{{topic[0]}}">comment</a>
+                                    </div>
+                                </div>
+                                <div class="posted_by">
+                                    <span>Posted By: <span class="posted_by_name">Someone</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- topic ends -->
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
+    <script src="../static/assets/bubbler-master/src/bubbler.min.js"></script>
+    <script src="https://use.fontawesome.com/bd48d6d264.js"></script>
+    <script src="../static/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+SELECT 
+                topic.topicID, user.userName, topic.topicName, topic.creationTime, Like.user_id, Like.topic
+                FROM user 
+                INNER JOIN topic 
+                ON user.userID=topic.postingUser
+				INNER JOIN Like
+				ON user.userID=Like.user_id
+                ORDER by topic.topicID DESC;

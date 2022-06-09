@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    color: #18d26e;
+    font-family: 'Inter', sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    background: #040404 url("../asset/img/bg.jpg") top right no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+.box {
+    background-color: rgba(60, 60, 60, 0.9);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: black !important;
+    border: 2px solid #18d26e !important;
+    border-radius: 25px !important;
+}
+
+.card .card-body span {
+    font-size: 32px !important;
+}
+
+.card .card-body .my-custom-scrollbar {
+    position: relative;
+    height: 145px;
+    overflow-y: scroll;
+
+}
+
+.card .card-body .table-wrapper-scroll-y {
+    display: block;
+}
+
+.my-custom-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.card .card-footer .btn {
+    background: #18d26e;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 22px !important;
+    font-weight: 500 !important;
+}
+
+.card .card-footer .btn:hover {
+    background: white;
+    color: #18d26e;
+    font-weight: bold !important;
+}
+
+/* Break points */
+@media (max-width: 1399.98px) {
+    .card {
+        width: 70% !important;
+    }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+    .card {
+        width: 70% !important;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+    .card {
+        width: 75% !important;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+    .card {
+        width: 80% !important;
+    }
+}
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .card {
+        width: 85% !important;
+    }
+}
+
+@media (max-width: 475px) {
+    .mainrow{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .card {
+        width: 85% !important;
+    }
+
+    .card .card-body .time-row span{
+        font-size: 28px !important;
+        padding: 0 !important;
+    }
+
+    .card .card-body table span {
+        font-size: 28px !important;
+    }
+
+    .card .card-body .my-custom-scrollbar {
+        height: 140px !important;
+    }
+
+    .card .card-body .row-speed{
+        margin-top: 20px !important;
+    }
+
+    .card .card-body .row-speed span{
+        font-size: 22px !important;
+    }
+
+    .card .card-body .row-dist{
+        font-size: 22px !important;
+        margin-top: 10px !important;
+    }
+
+    .card .card-footer .btn{
+        width: 40% !important;
+        margin-top: 20px !important;
+    }
+}
